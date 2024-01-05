@@ -6,5 +6,5 @@ public class AddressLocal
     public int Floor { get; set; }
     public int Room { get; set; }
 
-    public ICollection<Office> Offices { get; set; } = new List<Office>();
+    public Office Office { get; set; } = null!;
 }

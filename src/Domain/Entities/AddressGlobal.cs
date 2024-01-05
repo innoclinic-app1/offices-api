@@ -8,5 +8,5 @@ public class AddressGlobal
     public string Street { get; set; } = null!;
     public string Suite { get; set; } = null!;
 
-    public ICollection<Office> Offices { get; set; } = new List<Office>();
+    public Office Office { get; set; } = null!;
 }
