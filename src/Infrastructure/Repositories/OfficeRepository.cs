@@ -42,9 +42,15 @@ public class OfficeRepository(DataContext context) : IOfficeRepository
             await CheckPhoneNumberExistsAsync(updatedOffice.PhoneNumber);
         }
         
-        context.Entry(office).CurrentValues.SetValues(updatedOffice);
-        context.Entry(office.AddressLocal).CurrentValues.SetValues(updatedOffice.AddressLocal);
-        context.Entry(office.AddressGlobal).CurrentValues.SetValues(updatedOffice.AddressGlobal);
+        office.Capacity = updatedOffice.Capacity;
+        office.PhoneNumber = updatedOffice.PhoneNumber;
+        office.IsActive = updatedOffice.IsActive;
+        office.AddressGlobal.Country = updatedOffice.AddressGlobal.Country;
+        office.AddressGlobal.City = updatedOffice.AddressGlobal.City;
+        office.AddressGlobal.Street = updatedOffice.AddressGlobal.Street;
+        office.AddressGlobal.Suite = updatedOffice.AddressGlobal.Suite;
+        office.AddressLocal.Floor = updatedOffice.AddressLocal.Floor;
+        office.AddressLocal.Room = updatedOffice.AddressLocal.Room;
         
         await context.SaveChangesAsync();
         

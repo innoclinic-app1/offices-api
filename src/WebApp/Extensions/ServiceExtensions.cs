@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using Domain.Dtos;
+using Domain.Profiles;
 using Domain.Validators;
 using FluentValidation;
 using Infrastructure.Database;
@@ -41,7 +42,7 @@ internal static class ServiceExtensions
     
     public static IServiceCollection ConfigureMapper(this IServiceCollection services)
     {
-        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        services.AddAutoMapper(typeof(OfficeProfile));
         
         return services;
     }
